@@ -3,7 +3,7 @@ terraform {
 }
 
 provider "azurerm" {
-  version = ">=1.20.0"
+  features {}
 }
 
 resource "tls_private_key" "ssh" {

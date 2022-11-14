@@ -3,10 +3,10 @@ terraform {
 }
 
 provider "azurerm" {
-  version = ">=1.20.0"
+  features {}
 }
 
-data "azurerm_service_principal" "app_sp" {
+data "azuread_service_principal" "app_sp" {
   application_id = var.azure_client_id
 }
 
@@ -77,5 +77,5 @@ resource "azurerm_dns_txt_record" "phish_dns_acme" {
 resource "azurerm_role_assignment" "phish_dns_role_assignment" {
   scope                = azurerm_dns_zone.phish_dns_zone.id
   role_definition_name = "Contributor"
-  principal_id         = data.azurerm_service_principal.app_sp.object_id
+  principal_id         = data.azuread_service_principal.app_sp.object_id
 }

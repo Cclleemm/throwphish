@@ -3,7 +3,7 @@ terraform {
 }
 
 provider "azurerm" {
-  version = ">=1.20.0"
+  features {}
 }
 
 data "external" "get_public_ip" {
@@ -26,7 +26,7 @@ resource "azurerm_subnet" "phish_subnet" {
   name                 = "snet_${var.domain}"
   resource_group_name  = "${var.resource_group}"
   virtual_network_name = "${azurerm_virtual_network.phish_vnet.name}"
-  address_prefix       = "10.0.1.0/24"
+  address_prefixes     = ["10.0.1.0/24"]
 }
 
 resource "azurerm_public_ip" "phish_pip" {
@@ -104,7 +104,7 @@ resource "azurerm_network_interface" "phish_nic" {
   name                = "nic_${var.domain}"
   location            = "australiaeast"
   resource_group_name = "${var.resource_group}"
-  network_security_group_id = "${azurerm_network_security_group.phish_nsg.id}"
+  //network_security_group_id = "${azurerm_network_security_group.phish_nsg.id}"
 
   ip_configuration {
     name                          = "nicConfig"

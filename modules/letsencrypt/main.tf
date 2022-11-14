@@ -1,9 +1,14 @@
 terraform {
-  required_version = ">= 0.11.0"
+  required_providers {
+    acme = {
+      source  = "vancluever/acme"
+      version = "~> 2.0"
+    }
+  }
 }
 
 provider "azurerm" {
-  version = ">=1.20.0"
+  features {}
 }
 
 data "azurerm_client_config" "current_client" {}
