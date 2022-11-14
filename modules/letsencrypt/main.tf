@@ -49,9 +49,9 @@ resource "acme_certificate" "certificate" {
   provisioner "local-exec" {
     command = "echo \"${self.private_key_pem}\" > ./data/certificates/${self.common_name}_privkey.pem && echo \"${self.certificate_pem}\" > ./data/certificates/${self.common_name}_cert.pem"
   }
-
+/*
   provisioner "local-exec" {
     when = "destroy"
     command = "rm ./data/certificates/${self.common_name}*"
-  }
+  }*/
 }

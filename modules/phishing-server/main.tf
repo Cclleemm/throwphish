@@ -137,10 +137,10 @@ resource "azurerm_virtual_machine" "phish_vm" {
   }
 
   // remove the keys from the ssh_keys server and remove any aliasing
-  provisioner "local-exec" {
+ /* provisioner "local-exec" {
     when = "destroy"
     command = "rm ./ssh_keys/phishing_server_${var.customer}*"
-  }
+  }*/
 
   tags = {
     customer = "${var.customer}"
