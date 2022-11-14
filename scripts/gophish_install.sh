@@ -24,6 +24,7 @@ sudo chown gophishadm: /opt/gophish/static/endpoint
 sudo chmod 755 /opt/gophish/static/endpoint
 
 # Install GoPhish as a service
+sudo chmod +x /opt/gophish/gophish
 sudo cp /tmp/gophish.service /lib/systemd/system/gophish.service
 sudo cp /tmp/gophish_service.sh /opt/gophish/gophish_service.sh
 sudo chmod +x /opt/gophish/gophish_service.sh

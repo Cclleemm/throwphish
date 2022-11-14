@@ -28,9 +28,9 @@ resource "azurerm_virtual_machine" "phish_vm" {
 
   storage_image_reference {
     publisher = "Canonical"
-    offer     = "UbuntuServer"
-    sku       = "16.04.0-LTS"
-    version   = "latest"
+    offer = "0001-com-ubuntu-server-jammy"
+    sku = "22_04-lts"
+    version = "22.04.202204200"
   }
 
   os_profile {
